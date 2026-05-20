@@ -4,6 +4,18 @@ export class CategoryGrid {
     this.categoriesData = categoriesData;
     this.defaultBizNames = defaultBizNames;
     this.onSelectCategory = onSelectCategory;
+
+    // Close active category cards when clicking outside
+    document.addEventListener("click", (e) => {
+      if (this.container) {
+        const activeCards = this.container.querySelectorAll(".cat-card.active");
+        activeCards.forEach(card => {
+          if (!card.contains(e.target)) {
+            card.classList.remove("active");
+          }
+        });
+      }
+    });
   }
 
   render() {
@@ -31,7 +43,20 @@ export class CategoryGrid {
         </div>
       `;
 
-      card.addEventListener("click", () => {
+      card.addEventListener("click", (e) => {
+        // Prevent click outside event from immediately closing this card
+        e.stopPropagation();
+
+        const siblings = card.parentElement ? card.parentElement.querySelectorAll(".cat-card") : [];
+        siblings.forEach(sibling => {
+          if (sibling !== card) {
+            sibling.classList.remove("active");
+          }
+        });
+
+        // Toggle active class to open/close details panel
+        card.classList.toggle("active");
+
         const selectedSector = cat.id;
         const inputBizName = document.getElementById("biz-name");
         const inputBizSector = document.getElementById("biz-sector");
@@ -63,3 +88,4 @@ export class CategoryGrid {
     });
   }
 }
+

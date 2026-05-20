@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--primary);
   color: var(--primary);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -10px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 10px 25px -10px rgba(37, 99, 235, 0.15);
 }
 
 /* Header & Navigation Styles */
@@ -193,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 12px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: 50%;
-  box-shadow: 0 0 12px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
 }
 
 .saas-nav {
@@ -373,10 +373,19 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--glass-shadow);
 }
 
-.cat-card:hover {
+.cat-card:hover,
+.cat-card:focus-within {
   transform: translateY(-6px);
   border-color: rgba(37, 99, 235, 0.2);
   box-shadow: var(--hover-shadow);
+  z-index: 30;
+}
+
+.cat-card.active {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: var(--hover-shadow);
+  z-index: 25;
 }
 
 .cat-icon-wrap {
@@ -393,7 +402,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
-.cat-card:hover .cat-icon-wrap {
+.cat-card:hover .cat-icon-wrap,
+.cat-card.active .cat-icon-wrap {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
@@ -422,7 +432,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
-.cat-card:hover .cat-card-arrow {
+.cat-card:hover .cat-card-arrow,
+.cat-card.active .cat-card-arrow {
   opacity: 1;
   transform: translateX(0);
 }
@@ -435,7 +446,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%) translateY(10px);
   width: 290px;
   background: #ffffff;
-  border: 1px solid rgba(79, 70, 229, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   z-index: 10;
@@ -446,9 +457,12 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
-.cat-card:hover .cat-hover-detail {
+.cat-card:hover .cat-hover-detail,
+.cat-card:focus-within .cat-hover-detail,
+.cat-card.active .cat-hover-detail {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
 
 .cat-hover-detail h4 {
