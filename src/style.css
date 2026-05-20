@@ -6,32 +6,32 @@
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Premium Light SaaS Color Palette */
-  --bg-app: #ffffff;
-  --bg-neutral-light: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.8);
+  /* Premium Soft Light-Blue SaaS Color Palette */
+  --bg-app: #eef6ff;         /* Very light blue / cloud blue background */
+  --bg-neutral-light: #f3f8ff; /* Companion soft blue background tint */
+  --bg-card: #ffffff;        /* Pure white cards with soft shadows */
   --bg-card-hover: #ffffff;
   
-  --primary: #4f46e5;       /* Premium Indigo-purple accent */
-  --primary-hover: #4338ca;
-  --primary-glow: rgba(79, 70, 229, 0.15);
+  --primary: #2563eb;        /* Trust Blue (Premium SaaS blue primary accent) */
+  --primary-hover: #1d4ed8;
+  --primary-glow: rgba(37, 99, 235, 0.08);
   
-  --secondary: #3b82f6;     /* Friendly Trust Blue */
-  --secondary-hover: #2563eb;
+  --secondary: #4f46e5;      /* Indigo-purple as secondary accent color */
+  --secondary-hover: #4338ca;
   
-  --accent: #8b5cf6;        /* Soft purple accent */
-  --success: #10b981;       /* Friendly success green */
+  --accent: #7c3aed;         /* Soft accent purple */
+  --success: #10b981;        /* Friendly success green */
   
-  --text-main: #0f172a;     /* Deep slate for premium look */
-  --text-muted: #475569;    /* Clean warm slate gray */
+  --text-main: #0f172a;      /* Deep slate for high contrast & trust */
+  --text-muted: #334155;     /* Slate gray for readability */
   --text-muted-light: #64748b;
-  --border: rgba(0, 0, 0, 0.06); /* Extremely thin soft border */
-  --border-focus: rgba(79, 70, 229, 0.4);
+  --border: rgba(37, 99, 235, 0.08); /* Extremely soft cloud-blue border */
+  --border-focus: rgba(37, 99, 235, 0.3);
   
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(0, 0, 0, 0.04);
-  --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-  --hover-shadow: 0 20px 45px -15px rgba(79, 70, 229, 0.08), 0 8px 16px -4px rgba(79, 70, 229, 0.03);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(37, 99, 235, 0.06);
+  --glass-shadow: 0 12px 32px -12px rgba(37, 99, 235, 0.08), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --hover-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.12), 0 8px 20px -6px rgba(37, 99, 235, 0.04);
   
   --radius-lg: 20px;       /* Softer, modern roundings */
   --radius-md: 14px;
@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .grad-text {
-  background: linear-gradient(135deg, #0f172a 30%, #312e81 70%, var(--primary) 100%);
+  background: linear-gradient(135deg, #0f172a 20%, #1e3a8a 60%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .glow-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.35);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
 }
 
 .glow-btn::before {
@@ -215,17 +215,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* SaaS Hero Section */
 .hero {
-  padding: 9rem 2rem 6rem;
+  padding: 10rem 2rem 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   position: relative;
+  background: radial-gradient(120% 120% at 50% 0%, rgba(37, 99, 235, 0.07) 0%, rgba(79, 70, 229, 0.02) 50%, transparent 100%), var(--bg-app);
 }
 
 .badge {
-  background: rgba(79, 70, 229, 0.06);
-  border: 1px solid rgba(79, 70, 229, 0.12);
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   color: var(--primary);
   padding: 0.4rem 1rem;
   border-radius: 9999px;
@@ -271,8 +272,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 4rem;
 }
 
-/* How It Works Section */
-.how-it-works {
+/* From Idea to Website Section */
+.idea-to-website {
   padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -303,18 +304,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .step-card {
-  background: var(--bg-neutral-light);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2rem;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--glass-shadow);
 }
 
 .step-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.2);
   background: var(--bg-card-hover);
   box-shadow: var(--hover-shadow);
 }
@@ -344,7 +346,7 @@ h1, h2, h3, h4, h5, h6 {
 /* 10 Business Categories Grid */
 .categories {
   padding: 6rem 2rem;
-  background: radial-gradient(circle at center, rgba(79, 70, 229, 0.02) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.02) 0%, transparent 70%);
 }
 
 .categories-container {
@@ -368,21 +370,21 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   transition: var(--transition);
   position: relative;
+  box-shadow: var(--glass-shadow);
 }
 
 .cat-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-  background: #ffffff;
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.2);
   box-shadow: var(--hover-shadow);
 }
 
 .cat-icon-wrap {
   width: 54px;
   height: 54px;
-  background: rgba(79, 70, 229, 0.04);
+  background: rgba(37, 99, 235, 0.04);
   border-radius: 12px;
-  border: 1px solid rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -496,6 +498,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: var(--glass-shadow);
 }
 
 .style-deck-card::before {
@@ -510,8 +513,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .style-deck-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: var(--primary);
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(37, 99, 235, 0.2);
   box-shadow: var(--hover-shadow);
 }
 
@@ -697,7 +700,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .device-tab.active {
-  background: rgba(79, 70, 229, 0.08);
+  background: var(--primary-glow);
   color: var(--primary);
 }
 
@@ -730,14 +733,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f1f5f9;
+  background: linear-gradient(135deg, #e0ebff 0%, #eef6ff 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 2.25rem;
   height: 650px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 2px 8px rgba(37, 99, 235, 0.04);
 }
 
 .device-viewport {
@@ -798,12 +801,13 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--glass-shadow);
 }
 
 .price-card.popular {
   border-color: var(--primary);
-  background: rgba(79, 70, 229, 0.02);
-  box-shadow: 0 15px 35px -10px rgba(79, 70, 229, 0.1), 0 5px 15px -3px rgba(79, 70, 229, 0.05);
+  background: rgba(37, 99, 235, 0.02);
+  box-shadow: 0 15px 35px -10px rgba(37, 99, 235, 0.1), 0 5px 15px -3px rgba(37, 99, 235, 0.05);
 }
 
 .price-card.popular::before {
@@ -821,7 +825,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow: var(--hover-shadow);
 }
 
