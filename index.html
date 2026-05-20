@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Premium SEO Best Practices -->
+    <title>MyConceptor - Elite Business Website Concept Generator</title>
+    <meta name="description" content="Generate ready-to-use, tailored business website concepts in seconds. Pick your sector, choose your template style, input your company details, and watch your brand come alive in an interactive simulated demo." />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    
+    <!-- Background glowing decorative blobs -->
+    <div class="decor-blob decor-violet"></div>
+    <div class="decor-blob decor-blue"></div>
+    <div class="decor-blob decor-green"></div>
+
+    <!-- SaaS Navigation Header -->
+    <header class="saas-header">
+      <a href="#home" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <div class="logo-glow-dot"></div>
+        MyConceptor
+      </a>
+      <nav class="saas-nav">
+        <a href="#how-it-works" class="nav-item">How It Works</a>
+        <a href="#categories" class="nav-item">Sectors</a>
+        <a href="#styles" class="nav-item">Styles</a>
+        <a href="#generator" class="nav-item">Generator Console</a>
+        <a href="#pricing" class="nav-item">Pricing</a>
+        <a href="#contact-saas" class="nav-item">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#generator" class="glow-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Launch Engine</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>AI-Ready Concept Generation v1.0</span>
+      </div>
+      <h1 class="grad-text">Instantly Launch Your Premium Business Website Concept</h1>
+      <p>Select from 10 high-value business sectors, explore 6 designer visual styles, and input your details to generate a stunning, fully-functional website layout concept in real-time.</p>
+      <div class="hero-actions">
+        <a href="#generator" class="glow-btn">Start Generating Free</a>
+        <a href="#how-it-works" class="secondary-btn">Explore Features</a>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="section-head">
+        <span class="badge" style="margin-bottom: 0.5rem;">PROCESS</span>
+        <h2>How It Works</h2>
+        <p>A fast, transparent 5-step flow designed to deliver a tailored, live-rendered digital presence for your small business.</p>
+      </div>
+      <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Choose Sector</h3>
+          <p>Select from 10 detailed categories like Restaurant, Dental, or Boutique. Each includes custom pages and menus.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Choose Style</h3>
+          <p>Pick one of 6 visual templates: Modern, Luxury, Minimal, Colorful, Professional, or Elegant.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Enter Details</h3>
+          <p>Fill out our simple form with your name, colors, products/services, contact details, and description.</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>Generate Live</h3>
+          <p>Watch your website render instantly inside our responsive Device Simulator (Desktop, Tablet, Mobile).</p>
+        </div>
+        <!-- Step 5 -->
+        <div class="step-card">
+          <div class="step-num">05</div>
+          <h3>Connect & Go</h3>
+          <p>Download the code, link it to a premium custom domain, or let our design team deploy it for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Business Categories Section -->
+    <section class="categories" id="categories">
+      <div class="categories-container">
+        <div class="section-head">
+          <span class="badge" style="margin-bottom: 0.5rem;">INDUSTRIES</span>
+          <h2>10 Business Categories</h2>
+          <p>Our platform handles key menus and pages specific to your business sector right out of the box.</p>
+        </div>
+        <div class="categories-grid" id="categories-grid">
+          <!-- Populated dynamically via main.js for clean structure, but with premium placeholder markup -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Style Selection Section -->
+    <section class="styles-section" id="styles">
+      <div class="section-head">
+        <span class="badge" style="margin-bottom: 0.5rem;">DESIGN THEMES</span>
+        <h2>Visual Styles & Templates</h2>
+        <p>Swap styles instantly to transform typography, border curves, and spacing styles across the layout.</p>
+      </div>
+      <div class="styles-deck" id="styles-deck">
+        <!-- Populated dynamically via main.js for premium interaction -->
+      </div>
+    </section>
+
+    <!-- Core Interactive Generator Section -->
+    <section class="generator-section" id="generator">
+      <div class="generator-container">
+        <div class="section-head">
+          <span class="badge" style="margin-bottom: 0.5rem;">ENGINE CONSOLE</span>
+          <h2>Generate Your Website Concept</h2>
+          <p>Fill in details below and watch your layout compile instantly. Change categories, styles, or colors on the fly!</p>
+        </div>
+        
+        <div class="generator-workspace">
+          
+          <!-- Left Panel: Interactive Configurator Form -->
+          <form class="generator-form-panel" id="concept-form" onsubmit="event.preventDefault();">
+            <h3>Configuration Panel</h3>
+            <p>Customize details dynamically to adjust the generator results.</p>
+
+            <div class="form-row-saas">
+              <div class="form-group-saas">
+                <label for="biz-name">Business Name</label>
+                <input type="text" id="biz-name" value="Gourmet Reserve" required>
+              </div>
+              <div class="form-group-saas">
+                <label for="biz-color">Main Brand Color</label>
+                <input type="color" id="biz-color" value="#8b5cf6">
+              </div>
+            </div>
+
+            <div class="form-row-saas">
+              <div class="form-group-saas">
+                <label for="biz-sector">Business Sector</label>
+                <select id="biz-sector">
+                  <option value="restaurant" selected>Restaurant / Cafe</option>
+                  <option value="furniture">Furniture Store</option>
+                  <option value="realestate">Real Estate</option>
+                  <option value="beauty">Beauty Salon / Spa</option>
+                  <option value="dental">Dental Clinic</option>
+                  <option value="lawfirm">Law Firm</option>
+                  <option value="gym">Gym / Fitness</option>
+                  <option value="construction">Construction / Renovation</option>
+                  <option value="auto">Auto Dealership</option>
+                  <option value="clothing">Clothing / Boutique</option>
+                </select>
+              </div>
+              <div class="form-group-saas">
+                <label for="biz-style">Visual Style</label>
+                <select id="biz-style">
+                  <option value="modern" selected>Modern</option>
+                  <option value="luxury">Luxury</option>
+                  <option value="minimal">Minimal</option>
+                  <option value="colorful">Colorful</option>
+                  <option value="professional">Professional</option>
+                  <option value="elegant">Elegant</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-saas">
+              <label for="biz-desc">Short Business Description</label>
+              <textarea id="biz-desc" rows="3" placeholder="Explain what makes your business unique..."></textarea>
+            </div>
+
+            <div class="form-group-saas">
+              <label for="biz-products">Products or Services (One per line as Name:Price:Desc)</label>
+              <textarea id="biz-products" rows="4" placeholder="Enter products or leave empty for mock defaults.&#10;Example: Organic Latte:$5.50:Double shot bean milk&#10;Signature Waffles:$12.00:Blueberries & syrup"></textarea>
+            </div>
+
+            <div class="form-row-saas">
+              <div class="form-group-saas">
+                <label for="biz-phone">Phone Number</label>
+                <input type="text" id="biz-phone" value="+1 (555) 304-9812">
+              </div>
+              <div class="form-group-saas">
+                <label for="biz-email">Email Address</label>
+                <input type="email" id="biz-email" value="hello@gourmetreserve.com">
+              </div>
+            </div>
+
+            <div class="form-group-saas">
+              <label for="biz-address">Physical Address</label>
+              <input type="text" id="biz-address" value="482 Luxury Promenade, Suite A">
+            </div>
+
+            <div class="form-group-saas">
+              <label for="biz-logo">Logo URL (Optional placeholder)</label>
+              <input type="url" id="biz-logo" placeholder="https://example.com/logo.png">
+            </div>
+
+            <div class="form-row-saas">
+              <div class="form-group-saas">
+                <label for="social-fb">Facebook URL</label>
+                <input type="url" id="social-fb" placeholder="https://facebook.com/mybrand">
+              </div>
+              <div class="form-group-saas">
+                <label for="social-ig">Instagram URL</label>
+                <input type="url" id="social-ig" placeholder="https://instagram.com/mybrand">
+              </div>
+            </div>
+          </form>
+
+          <!-- Right Panel: Live Device Simulator -->
+          <div class="simulator-panel">
+            <div class="simulator-controls">
+              <!-- Responsive toggles -->
+              <div class="device-tabs">
+                <button class="device-tab active" data-device="desktop">🖥 Desktop</button>
+                <button class="device-tab" data-device="tablet">📟 Tablet</button>
+                <button class="device-tab" data-device="mobile">📱 Mobile</button>
+              </div>
+              <!-- Action buttons -->
+              <div class="simulator-actions">
+                <button class="simulator-action-btn btn-demo" id="sim-btn-demo">View Demo</button>
+                <button class="simulator-action-btn btn-use" id="sim-btn-use">Use Concept</button>
+                <button class="simulator-action-btn btn-setup" id="sim-btn-setup">Request Setup</button>
+              </div>
+            </div>
+
+            <!-- Frame containing dynamic live page -->
+            <div class="device-viewport-container">
+              <div class="device-viewport desktop" id="simulator-viewport">
+                <!-- Sandbox isolated rendering for CSS/HTML components safety -->
+                <iframe class="simulated-iframe" id="sim-iframe" title="Interactive Simulator Frame"></iframe>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Request a Demo Section -->
+    <section class="pricing" id="pricing">
+      <div class="section-head">
+        <span class="badge" style="margin-bottom: 0.5rem;">FLEXIBLE TIERS</span>
+        <h2>Pricing & Setup Requests</h2>
+        <p>Choose an independent hosting subscription or let our expert team deploy the concept for you.</p>
+      </div>
+      <div class="pricing-grid">
+        <!-- Plan 1 -->
+        <div class="price-card">
+          <h3>Self-Starter</h3>
+          <p>Perfect for developers or tech-savvy small business owners.</p>
+          <div class="price-amount">$0 <span>/ forever</span></div>
+          <ul class="price-features">
+            <li>Generate unlimited concepts</li>
+            <li>Custom color & text overrides</li>
+            <li>Export responsive HTML code</li>
+            <li>Use category mock templates</li>
+          </ul>
+          <button class="glow-btn" style="background: var(--glass-bg); border-color: var(--border); box-shadow: none;" onclick="window.scrollToGenerator();">Generate Now</button>
+        </div>
+        <!-- Plan 2 -->
+        <div class="price-card popular">
+          <h3>Concept Pro</h3>
+          <p>Our recommended tier to link custom domains and unlock hosting.</p>
+          <div class="price-amount">$19 <span>/ month</span></div>
+          <ul class="price-features">
+            <li>Includes everything in Free</li>
+            <li>Connect custom domains</li>
+            <li>High-speed SaaS cloud hosting</li>
+            <li>Premium logo & asset upload</li>
+            <li>SEO analytics dashboard</li>
+          </ul>
+          <button class="glow-btn btn-use-modal-trigger">Unlock Concept Pro</button>
+        </div>
+        <!-- Plan 3 -->
+        <div class="price-card">
+          <h3>Expert Setup</h3>
+          <p>Let our professional developers customize and launch it for you.</p>
+          <div class="price-amount">$199 <span>/ flat fee</span></div>
+          <ul class="price-features">
+            <li>Full copywriter setup</li>
+            <li>Bespoke customized layouts</li>
+            <li>Custom branding alignment</li>
+            <li>Payment integration (Stripe)</li>
+            <li>3 months complimentary Pro support</li>
+          </ul>
+          <button class="glow-btn btn-setup-modal-trigger" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">Book Launch Setup</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request a Demo / SaaS Contact Section -->
+    <section class="contact-saas" id="contact-saas">
+      <div class="contact-saas-container">
+        <div class="section-head">
+          <span class="badge" style="margin-bottom: 0.5rem;">QUICK QUERY</span>
+          <h2>Connect With Our Tech Team</h2>
+          <p>Interested in customized templates, white-label agencies, or corporate enterprise rates?</p>
+        </div>
+        <form class="contact-saas-form" onsubmit="event.preventDefault(); alert('Request sent! Our developers will contact you in a few hours.');">
+          <div class="form-row-saas">
+            <div class="form-group-saas">
+              <label>Your Name</label>
+              <input type="text" placeholder="Sarah Jenkins" required>
+            </div>
+            <div class="form-group-saas">
+              <label>Work Email</label>
+              <input type="email" placeholder="sarah@agency.com" required>
+            </div>
+          </div>
+          <div class="form-group-saas">
+            <label>How can we assist you?</label>
+            <textarea rows="4" placeholder="Explain your custom requirements, domain setup details, or agency white-label goals..." required></textarea>
+          </div>
+          <button type="submit" class="glow-btn">Submit Request</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SaaS Footer -->
+    <footer class="saas-footer">
+      <a href="#home" class="saas-footer-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <div class="logo-glow-dot"></div>
+        MyConceptor Engine
+      </a>
+      <p>&copy; 2026 MyConceptor Platforms. All rights reserved. Created with absolute excellence in modern web app building.</p>
+    </footer>
+
+    <!-- Interactive Popups/Modals -->
+    
+    <!-- Modal Use Concept -->
+    <div class="modal-overlay" id="modal-use-concept">
+      <div class="modal-content" style="max-width: 480px;">
+        <button class="modal-close" onclick="closeModal('modal-use-concept')">×</button>
+        <div class="modal-icon">🚀</div>
+        <h3>Deploy This Concept!</h3>
+        <p>You are about to export this design! Enter your email to receive a zip archive with pre-bundled static pages (HTML, CSS, JS) and link your domain name instantly.</p>
+        
+        <!-- Dynamically Populated Selected Concept Card -->
+        <div id="selected-concept-summary" style="background: var(--bg-neutral-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin: 1rem 0; text-align: left;">
+          <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem; display: flex; align-items: center; gap: 0.35rem;">
+            <span>Selected Concept:</span>
+          </div>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            <span>Business Name:</span><strong id="summary-biz-name" style="color: var(--text-main);">Gourmet Reserve</strong>
+            <span>Industry Sector:</span><strong id="summary-biz-sector" style="color: var(--text-main);">Restaurant / Cafe</strong>
+            <span>Visual Theme:</span><strong id="summary-biz-style" style="color: var(--text-main);">Modern Style</strong>
+            <span>Brand Identity:</span><span style="display: flex; align-items: center; gap: 0.35rem;"><span id="summary-color-dot" style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #8b5cf6;"></span><strong id="summary-biz-color" style="color: var(--text-main);">#8b5cf6</strong></span>
+          </div>
+        </div>
+
+        <form onsubmit="event.preventDefault(); const bizName = document.getElementById('summary-biz-name').textContent; alert(bizName + ' bundled successfully! Check your email for code assets.'); closeModal('modal-use-concept');" style="display: flex; flex-direction: column; gap: 1rem;">
+          <input type="email" placeholder="yourname@business.com" required>
+          <button type="submit" class="glow-btn">Bundle & Deploy</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Request Setup -->
+    <div class="modal-overlay" id="modal-request-setup">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('modal-request-setup')">×</button>
+        <div class="modal-icon">🛠</div>
+        <h3>Professional Setup Request</h3>
+        <p>Let our elite engineering and design team convert this concept into a customized fully-active product. We'll handle domain DNS setup, copywriting, and advanced integrations.</p>
+        <form onsubmit="event.preventDefault(); alert('Setup request logged! Our senior developer will contact you today.'); closeModal('modal-request-setup');" style="display: flex; flex-direction: column; gap: 1rem;">
+          <input type="text" placeholder="Company Name" required>
+          <input type="email" placeholder="Best Email Address" required>
+          <button type="submit" class="glow-btn" style="background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);">Register Request</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main JS Application Controller -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
