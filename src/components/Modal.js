@@ -1,3 +1,5 @@
+import { config } from "../data/config.js";
+
 export class ModalManager {
   constructor(categoriesData, stylesTheme) {
     this.categoriesData = categoriesData;
@@ -7,6 +9,7 @@ export class ModalManager {
   init() {
     this.setupTriggers();
     this.setupClickOutside();
+    this.setupFormSubmissions();
     
     // Bind global helpers so inline HTML on clicks can still call them
     window.openModal = (id) => this.open(id);
@@ -15,7 +18,10 @@ export class ModalManager {
 
   open(id) {
     const modal = document.getElementById(id);
-    if (modal) modal.classList.add("active");
+    if (modal) {
+      this.populateDeployCard();
+      modal.classList.add("active");
+    }
   }
 
   close(id) {
@@ -35,6 +41,7 @@ export class ModalManager {
     const setupTriggers = document.querySelectorAll(".btn-setup-modal-trigger");
     setupTriggers.forEach(btn => {
       btn.addEventListener("click", () => {
+        this.populateDeployCard();
         this.open("modal-request-setup");
       });
     });
@@ -74,5 +81,145 @@ export class ModalManager {
     if (styleEl) styleEl.textContent = styleName + " Theme";
     if (colorEl && inputBizColor) colorEl.textContent = inputBizColor.value;
     if (colorDot && inputBizColor) colorDot.style.backgroundColor = inputBizColor.value;
+
+    // Populates hidden fields across all active forms
+    this.populateHiddenFields();
+  }
+
+  populateHiddenFields() {
+    const inputBizName = document.getElementById("biz-name");
+    const inputBizSector = document.getElementById("biz-sector");
+    const inputBizStyle = document.getElementById("biz-style");
+    const inputBizColor = document.getElementById("biz-color");
+    const inputBizDesc = document.getElementById("biz-desc");
+    const inputBizProducts = document.getElementById("biz-products");
+    const inputBizPhone = document.getElementById("biz-phone");
+    const inputBizEmail = document.getElementById("biz-email");
+    const inputBizAddress = document.getElementById("biz-address");
+    const inputBizLogo = document.getElementById("biz-logo");
+    const inputSocialFb = document.getElementById("social-fb");
+    const inputSocialIg = document.getElementById("social-ig");
+
+    const prefixes = ["use", "setup"];
+    prefixes.forEach(prefix => {
+      const setHiddenVal = (id, val) => {
+        const el = document.getElementById(`${prefix}-${id}`);
+        if (el) el.value = val || "";
+      };
+
+      setHiddenVal("biz-name", inputBizName?.value);
+      setHiddenVal("biz-sector", inputBizSector?.value);
+      setHiddenVal("biz-style", inputBizStyle?.value);
+      setHiddenVal("biz-color", inputBizColor?.value);
+      setHiddenVal("biz-desc", inputBizDesc?.value);
+      setHiddenVal("biz-products", inputBizProducts?.value);
+      setHiddenVal("biz-phone", inputBizPhone?.value);
+      setHiddenVal("biz-email", inputBizEmail?.value);
+      setHiddenVal("biz-address", inputBizAddress?.value);
+      setHiddenVal("biz-logo", inputBizLogo?.value);
+      setHiddenVal("social-fb", inputSocialFb?.value);
+      setHiddenVal("social-ig", inputSocialIg?.value);
+    });
+  }
+
+  setupFormSubmissions() {
+    const formUse = document.getElementById("form-use-concept");
+    const formSetup = document.getElementById("form-request-setup");
+
+    if (formUse) {
+      formUse.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const emailInput = document.getElementById("use-concept-email");
+        const submitBtn = document.getElementById("btn-submit-use");
+        if (!emailInput || !submitBtn) return;
+
+        const email = emailInput.value.trim();
+        const data = this.getFormData(formUse, email);
+
+        try {
+          submitBtn.disabled = true;
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Packaging Code Assets...";
+
+          await this.postToFormspree(data);
+
+          // Smoothly redirect customer to Stripe payment link for Concept Pro flat fee
+          window.location.href = config.stripe.conceptProOnce;
+        } catch (err) {
+          console.error("AJAX specifications submission failed:", err);
+          // Fallback redirect to ensure transaction is never blocked
+          window.location.href = config.stripe.conceptProOnce;
+        }
+      });
+    }
+
+    if (formSetup) {
+      formSetup.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById("setup-company-name");
+        const emailInput = document.getElementById("setup-concept-email");
+        const submitBtn = document.getElementById("btn-submit-setup");
+        if (!nameInput || !emailInput || !submitBtn) return;
+
+        const email = emailInput.value.trim();
+        const companyName = nameInput.value.trim();
+        const data = this.getFormData(formSetup, email, companyName);
+
+        try {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Securing Launch Slot...";
+
+          await this.postToFormspree(data);
+
+          // Smoothly redirect customer to Stripe payment link for Expert Setup flat fee
+          window.location.href = config.stripe.expertSetupOnce;
+        } catch (err) {
+          console.error("AJAX specifications submission failed:", err);
+          // Fallback redirect to ensure transaction is never blocked
+          window.location.href = config.stripe.expertSetupOnce;
+        }
+      });
+    }
+  }
+
+  getFormData(form, email, companyName = "") {
+    const selectedPlan = form.querySelector('input[name="selected_plan"]')?.value || "Concept Pro";
+    const data = {
+      email: email,
+      selected_plan: selectedPlan,
+      ...(companyName && { company_name: companyName })
+    };
+
+    const hiddenInputs = form.querySelectorAll('input[type="hidden"]');
+    hiddenInputs.forEach(input => {
+      if (input.name && input.name !== "selected_plan") {
+        data[input.name] = input.value;
+      }
+    });
+
+    return data;
+  }
+
+  async postToFormspree(data) {
+    // If using the default placeholder Formspree ID, simulate successful submission
+    if (!config.formspreeId || config.formspreeId === "xzbkbjqk") {
+      console.log("Formspree submission simulator payload:", data);
+      return new Promise((resolve) => setTimeout(resolve, 800));
+    }
+
+    const response = await fetch(`https://formspree.io/f/${config.formspreeId}`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Formspree service error: status ${response.status}`);
+    }
+
+    return response.json();
   }
 }
