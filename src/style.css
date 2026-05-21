@@ -175,6 +175,20 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
+  transition: padding 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .saas-header {
+    padding: 1.25rem 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .saas-header {
+    padding-left: calc((100% - 1200px) / 2 + 4rem);
+    padding-right: calc((100% - 1200px) / 2 + 4rem);
+  }
 }
 
 .logo {
@@ -184,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -940,7 +954,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .saas-footer-logo .brand-logo-img {
-  height: 58px;
+  height: 72px;
 }
 
 /* Custom Alert Overlay Modals */
