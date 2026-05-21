@@ -180,6 +180,57 @@ export class ModalManager {
         }
       });
     }
+
+    const formContact = document.getElementById("contact-form");
+    if (formContact) {
+      formContact.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const nameInput = formContact.querySelector('input[name="name"]');
+        const emailInput = formContact.querySelector('input[name="email"]');
+        const messageInput = formContact.querySelector('textarea[name="message"]');
+        const submitBtn = document.getElementById("btn-submit-contact");
+        if (!emailInput || !submitBtn) return;
+
+        const name = nameInput ? nameInput.value.trim() : "";
+        const email = emailInput.value.trim();
+        const message = messageInput ? messageInput.value.trim() : "";
+
+        const data = {
+          name: name,
+          email: email,
+          message: message,
+          subject: "New Quick Query from MyConceptor Contact Form"
+        };
+
+        try {
+          submitBtn.disabled = true;
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Sending...";
+
+          await this.postToFormspree(data);
+
+          submitBtn.textContent = "Message Sent!";
+          submitBtn.style.background = "#10b981"; // Success green
+          formContact.reset();
+
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = "";
+          }, 4000);
+        } catch (err) {
+          console.error("Contact form submission failed:", err);
+          submitBtn.textContent = "Submission Failed";
+          submitBtn.style.background = "#ef4444"; // Error red
+
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = "";
+          }, 3000);
+        }
+      });
+    }
   }
 
   getFormData(form, email, companyName = "") {
