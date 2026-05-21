@@ -6,7 +6,7 @@ export const config = {
   // Stripe Payment Links (Flat-fee one-time payments)
   // Replace these placeholders with your actual Stripe checkout links
   stripe: {
-    conceptProOnce: "https://buy.stripe.com/mock-pro-once",    // $149 Flat Fee
-    expertSetupOnce: "https://buy.stripe.com/mock-expert-once"   // $599 Flat Fee
+    conceptProOnce: "https://buy.stripe.com/6oU5kv7ba07Iarg9Liew804",    // $250 Flat Fee
+    expertSetupOnce: "https://buy.stripe.com/3cI9AL3YYbQq9nc9Liew805"   // $599 Flat Fee
   }
 };
