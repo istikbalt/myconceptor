@@ -452,12 +452,6 @@ export function generatePreviewHTML(options) {
     </div>
   </div>
 
-  <!-- Creator Banner -->
-  <div class="iframe-creator-banner">
-    <span>💡 You are previewing a live **MyConceptor** website concept.</span>
-    <button class="iframe-creator-btn" onclick="triggerParentCustomize()">Customize Layout</button>
-  </div>
-
   <script>
     ${iframeJS}
   </script>
