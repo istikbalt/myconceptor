@@ -1,7 +1,7 @@
 export const config = {
   // Formspree Form ID to receive email notifications with full design specs
   // Replace this placeholder with your own Formspree Form ID (from formspree.io)
-  formspreeId: "xzbkbjqk",
+  formspreeId: "mpqbqnwn",
   
   // Stripe Payment Links (Flat-fee one-time payments)
   // Replace these placeholders with your actual Stripe checkout links
