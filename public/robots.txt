@@ -1,0 +1,7 @@
+# MYCONCEPTOR - ROBOTS.TXT
+# https://www.myconceptor.com/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.myconceptor.com/sitemap.xml
